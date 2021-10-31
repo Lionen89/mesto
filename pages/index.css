@@ -1,0 +1,10 @@
+@import url(../vendor/normalize.css);
+@import url(../blocks/main-page/main-page.css);
+@import url(../vendor/fonts/Inter/inter.css);
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/_info/profole_info.css);
+@import url(../blocks/profile/_name/profile_name.css);
+@import url(../blocks/profile/_profession/profile_profession.css);
+@import url(../blocks/Avatar/Avatar.css);
+@import url(../blocks/edit-button/edit-button.css);
+@import url(../blocks/add-button/add-button.css);
