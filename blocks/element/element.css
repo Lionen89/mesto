@@ -1,0 +1,9 @@
+.element{
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    max-height: 361px;
+    max-width: 282px;
+    overflow: hidden;
+    position: relative;
+}
