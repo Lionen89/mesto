@@ -5,4 +5,12 @@
     color: #FFFFFF;
     margin: 0;
     padding: 0;
+    display: inline-block ;
+}
+@media screen and (max-width: 680px) {
+    .profile__name {
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
+    }
 }

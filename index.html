@@ -6,85 +6,87 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <script src="./scripts/script.js"></script>
   <title>Mesto Russia</title>
 </head>
 
 <body class="main-page">
-  <section class="header">
-    <img src="./images/Mesto_Russia.svg" alt="Лого Место" class="header__logo">
-  </section>
-  <section class="profile">
-    <img src="./images/Jacques-Yves Cousteau.jpeg" alt="Жак Ив Кусто" class="Avatar">
-    <div class="profile__info">
-      <h1 class="profile__name">Жак Ив Кусто</h1>
-      <h2 class="profile__description">Исследователь океана</h2>
-    </div>
-    <button class="edit-button">
-      <img src="./images/pen.svg" alt="Ручка" class="pen">
-    </button>
-    <button class="add-button">
-      <img src="./images/plus.svg" alt="Плюс" class="plus">
-    </button>
-  </section>
-  <section class="elements">
-    <article class="element">
-      <img src="./images/Pyatigorsk.jpeg" alt="Пятигорск" class="element__image">
-      <div class="eltment__description">
-        <h2 class="eltment__title">Пятигорск</h2>
-        <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+  <div class="main-page__container">
+    <section class="header">
+      <img src="./images/Mesto_Russia.svg" alt="Лого Место" class="header__logo">
+    </section>
+    <section class="profile">
+      <img src="./images/Jacques-Yves Cousteau.jpeg" alt="Жак Ив Кусто" class="avatar">
+      <div class="profile__info">
+        <h1 class="profile__name">Жак Ив Кусто</h1>
+        <button class="edit-button">
+          <img src="./images/pen.svg" alt="Ручка" class="edit-button__pen">
+        </button>
+        <h2 class="profile__description">Исследователь океана</h2>
       </div>
-    </article>
-    <article class="element">
-      <img src="./images/Kislovodsk.jpeg" alt="Кисловодск" class="element__image">
-      <div class="eltment__description">
-        <h2 class="eltment__title">Кисловодск</h2>
-        <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+      <button class="add-button">
+        <img src="./images/plus.svg" alt="Плюс" class="plus">
+      </button>
+    </section>
+    <section class="elements">
+      <article class="element">
+        <img src="./images/Pyatigorsk.jpeg" alt="Пятигорск" class="element__image">
+        <div class="eltment__description">
+          <h2 class="eltment__title">Пятигорск</h2>
+          <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Kislovodsk.jpeg" alt="Кисловодск" class="element__image">
+        <div class="eltment__description">
+          <h2 class="eltment__title">Кисловодск</h2>
+          <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Essentuki.-Fontanyi-u-vhoda-v-Kurortnyiy-park5.jpg" alt="Ессентуки" class="element__image">
+        <div class="eltment__description">
+          <h2 class="eltment__title">Ессентуки</h2>
+          <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Tuapse.jpeg" alt="Туапсе" class="element__image">
+        <div class="eltment__description">
+          <h2 class="eltment__title">Туапсе</h2>
+          <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg" alt="Краснодар" class="element__image">
+        <div class="eltment__description">
+          <h2 class="eltment__title">Краснодар</h2>
+          <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Sochi.jpeg" alt="Сочи" class="element__image">
+        <div class="eltment_description">
+          <h2 class="eltment__title">Сочи</h2>
+          <img src="./images/heart.svg" alt="Сердце" class="element__heart">
+        </div>
+      </article>
+    </section>
+    <section class="footer">
+      <p class="footer__copiright">&#169;2020 Mesto Russia</p>
+    </section>
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form">
+          <input type="text" class="popup__text" name="name" value="Жак Ив Кусто" required>
+          <input type="text" class="popup__text" name="description" value="Исследователь океана" required>
+          <button type="submit" class="popup__save-button">Сохранить</button>
+          <button type="reset" class="popup__close-button"></button>
+        </form>
       </div>
-    </article>
-    <article class="element">
-      <img src="./images/Essentuki.-Fontanyi-u-vhoda-v-Kurortnyiy-park5.jpg" alt="Ессентуки" class="element__image">
-      <div class="eltment__description">
-        <h2 class="eltment__title">Ессентуки</h2>
-        <img src="./images/heart.svg" alt="Сердце" class="element__heart">
-      </div>
-    </article>
-    <article class="element">
-      <img src="./images/Tuapse.jpeg" alt="Туапсе" class="element__image">
-      <div class="eltment__description">
-        <h2 class="eltment__title">Туапсе</h2>
-        <img src="./images/heart.svg" alt="Сердце" class="element__heart">
-      </div>
-    </article>
-    <article class="element">
-      <img src="./images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg" alt="Краснодар" class="element__image">
-      <div class="eltment__description">
-        <h2 class="eltment__title">Краснодар</h2>
-        <img src="./images/heart.svg" alt="Сердце" class="element__heart">
-      </div>
-    </article>
-    <article class="element">
-      <img src="./images/Sochi.jpeg" alt="Сочи" class="element__image">
-      <div class="eltment_description">
-        <h2 class="eltment__title">Сочи</h2>
-        <img src="./images/heart.svg" alt="Сердце" class="element__heart">
-      </div>
-    </article>
-  </section>
-  <section class="footer">
-    <p class="footer__copiright">&#169;2020 Mesto Russia</p>
-  </section>
-  <div class="popup">
-    <div class="popup__container">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form">
-        <input type="text" class="popup__text" name="name" value="Жак Ив Кусто" required>
-        <input type="text" class="popup__text" name="description" value="Исследователь океана" required>
-        <button type="submit" class="popup__save-button">Сохранить</button>
-        <button type="reset" class="popup__close-button"></button>
-      </form>
     </div>
   </div>
+  <script src="./scripts/script.js"></script>
 </body>
 
 </html>

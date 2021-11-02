@@ -1,4 +1,4 @@
-.popup__container{
+.popup__container {
     height: 330px;
     width: 430px;
     background-color: #FFFFFF;
@@ -9,4 +9,13 @@
     left: calc(50% - 430px/2);
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-width: 680px) {
+    .popup__container {
+        height: 322px;
+        width: 282px;
+        top: calc(50% - 322px/2);
+        left: calc(50% - 282px/2);
+    }
 }

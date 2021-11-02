@@ -1,6 +1,7 @@
-.popup{
+.popup {
     display: none;
 }
+
 .popup::before {
     position: absolute;
     display: block;

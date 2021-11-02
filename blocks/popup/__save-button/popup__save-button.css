@@ -12,3 +12,17 @@
     font-size: 18px;
     line-height: 22px;
 }
+
+.popup__save-button:hover {
+    opacity: 80%;
+}
+
+@media screen and (max-width: 680px) {
+    .popup__save-button {
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 45px 22px 25px;
+    }
+}
