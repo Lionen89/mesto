@@ -1,6 +1,7 @@
-.element__heart{
+.element__heart {
     margin-right: 30px;
 }
-.element__heart:hover{
+
+.element__heart:hover {
     opacity: 50%;
 }
