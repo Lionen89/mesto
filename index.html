@@ -10,6 +10,17 @@
 </head>
 
 <body class="main-page">
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form">
+        <input type="text" class="popup__text" name="name" value="Жак Ив Кусто" required>
+        <input type="text" class="popup__text" name="description" value="Исследователь океана" required>
+        <button type="submit" class="popup__save-button">Сохранить</button>
+        <button type="reset" class="popup__close-button"></button>
+      </form>
+    </div>
+  </div>
   <div class="main-page__container">
     <section class="header">
       <img src="./images/Mesto_Russia.svg" alt="Лого Место" class="header__logo">
@@ -74,17 +85,7 @@
     <section class="footer">
       <p class="footer__copiright">&#169;2020 Mesto Russia</p>
     </section>
-    <div class="popup">
-      <div class="popup__container">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form">
-          <input type="text" class="popup__text" name="name" value="Жак Ив Кусто" required>
-          <input type="text" class="popup__text" name="description" value="Исследователь океана" required>
-          <button type="submit" class="popup__save-button">Сохранить</button>
-          <button type="reset" class="popup__close-button"></button>
-        </form>
-      </div>
-    </div>
+    
   </div>
   <script src="./scripts/script.js"></script>
 </body>
