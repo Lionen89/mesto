@@ -1,6 +1,7 @@
 .main-page__container {
-padding: 45px 200px 0 200px;
+    padding: 45px 200px 0 200px;
 }
+
 @media screen and (max-width: 1124px) {
     .main-page__container {
         padding: 36px 100px 0 100px;

@@ -5,7 +5,11 @@
     color: #FFFFFF;
     margin: 0;
     padding: 0;
-    display: inline-block;
+    display: inline-flex;
+    text-overflow: ellipsis;
+    max-width: 336px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 @media screen and (max-width: 680px) {
     .profile__name {
