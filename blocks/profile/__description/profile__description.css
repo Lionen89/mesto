@@ -9,6 +9,8 @@
     max-width: 294px;
     overflow: hidden;
     white-space: nowrap;
+    flex-grow: 1;
+    order:1;
 }
 
 @media screen and (max-width: 838px) {

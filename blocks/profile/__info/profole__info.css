@@ -1,6 +1,21 @@
 .profile__info {
     margin-left: 30px;
     margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profile__info::after {
+    content: '';
+    width: 100%;
+    order: 0;
+}
+
+@media screen and (max-width: 838px) {
+    .profile__info {
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 680px) {

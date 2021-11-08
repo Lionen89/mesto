@@ -5,7 +5,6 @@
     color: #FFFFFF;
     margin: 0;
     padding: 0;
-    display: inline-flex;
     text-overflow: ellipsis;
     max-width: 336px;
     overflow: hidden;
