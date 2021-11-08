@@ -1,15 +1,21 @@
 .main-page__container {
-    padding: 45px 200px 0 200px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1340px) {
+    .main-page__container {
+        margin: 0 200px;
+    }
 }
 
 @media screen and (max-width: 1124px) {
     .main-page__container {
-        padding: 36px 100px 0 100px;
+        margin: 0 100px;
     }
 }
 
 @media screen and (max-width: 680px) {
     .main-page__container {
-        padding: 28px 19px 0 19px;
+        margin: 28px 19px 0 19px;
     }
 }
