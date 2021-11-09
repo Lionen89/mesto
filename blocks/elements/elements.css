@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 1124px) {
     .elements {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 1fr);
         grid-template-rows: 1fr 1fr 1fr;
         align-items: center;
         justify-items: center;
