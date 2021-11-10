@@ -16,8 +16,8 @@
     }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 781px) {
     .main-page__container {
-        margin: 28px 19px 0 19px;
+        margin: 0 auto;
     }
 }
