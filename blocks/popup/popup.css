@@ -1,5 +1,5 @@
 .popup {
-    display: none;
+    display: flex;
     position: fixed;
     justify-content: center;
     align-items: center;
@@ -8,4 +8,12 @@
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
     z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.popup:hover {
+    visibility: visible;
+    opacity: 1;
 }
