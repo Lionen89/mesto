@@ -9,4 +9,8 @@
     top: 20px;
     right: 20px;
     border: none;
+    cursor: pointer;
+}
+.element__trash:hover{
+    opacity: 0.6;
 }

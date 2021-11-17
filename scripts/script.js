@@ -2,6 +2,7 @@
 const edit = document.querySelector('.profile__edit-button');
 const popupEdit = document.querySelector('.popup_edit');
 const popupAdd = document.querySelector('.popup_add');
+const popupPhoto = document.querySelector('.popup_photo');
 const oldName = document.querySelector('.profile__name');
 const oldJob = document.querySelector('.profile__description');
 const formEdit = popupEdit.querySelector('.popup__form');
@@ -13,6 +14,7 @@ const elementTemplate = document.querySelector('.element-template');
 const elementsPlace = document.querySelector('.elements');
 const closeEdit = popupEdit.querySelector('.popup__close-button');
 const closeAdd = popupAdd.querySelector('.popup__close-button');
+const closePhoto = popupPhoto.querySelector('.popup__close-button');
 const like = document.querySelector('.element__heart');
 
 // фукция открытия редактора профиля
@@ -48,44 +50,58 @@ formEdit.addEventListener('submit', formSubmitHandler);
 
 // задаем 6 карточек 
 const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
+    name: 'Сочи',
+    link: './images/Sochi.jpeg'
+},
+{
+    name: 'Краснодар',
+    link: './images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg'
+},
+{
+    name: 'Туапсе',
+    link: './images/Tuapse.jpeg'
+},
+{
+    name: 'Ессентуки',
+    link: './images/Essentuki.-Fontanyi-u-vhoda-v-Kurortnyiy-park5.jpg'
+},
+{
+    name: 'Кисловодск',
+    link: './images/Kislovodsk.jpeg'
+},
+{
+    name: 'Пятигорск',
+    link: './images/Pyatigorsk.jpeg'
+}
 ];
 // вставляем на траницу 6 карточек при загрузке страницы
 
 initialCards.forEach((item) => {
-    createCards(item.name, item.link)
+    createCard(item.name, item.link)
 });
 
-function createCards(name, link) {
+function createCard(name, link) {
     const userElement = elementTemplate.content.querySelector('.element').cloneNode(true);
     userElement.querySelector('.element__image').src = link;
     userElement.querySelector('.element__image').alt = name;
     userElement.querySelector('.element__description > .element__title').textContent = name;
+    // ловим событие для лайка
     userElement.querySelector('.element__heart').addEventListener('click', function (event) {
         likeButton(event);
     });
+    // фукция удаления карточки
+    userElement.querySelector('.element__trash').addEventListener('click', function () {
+        userElement.remove();
+    });
+    // ловим событие для открытия фото
+    userElement.querySelector('.element__image').addEventListener('click', function () {
+        // фукция открытия картики
+        popupPhoto.classList.add('popup_opened');
+        popupPhoto.querySelector('.popup__image').src = link;
+        popupPhoto.querySelector('.popup__image').alt = name;
+        popupPhoto.querySelector('.popup__photo-title').textContent = name;
+    });
+
     elementsPlace.prepend(userElement);
 }
 
@@ -110,7 +126,7 @@ function addCards(evt) {
     evt.preventDefault();
     const cardName = formAdd.querySelector('.popup__text[name="name"]').value;
     const cardLink = formAdd.querySelector('.popup__text[name="link"]').value;
-    createCards(cardName, cardLink);
+    createCard(cardName, cardLink);
     closeAddPopup();
 };
 formAdd.addEventListener('submit', addCards);
@@ -120,3 +136,9 @@ formAdd.addEventListener('submit', addCards);
 function likeButton(event) {
     event.target.classList.toggle('element__heart_active');
 };
+
+// фукция закрытия картинки
+function closePhotoPopup() {
+    popupPhoto.classList.remove('popup_opened');
+};
+closePhoto.addEventListener('click', closePhotoPopup);
