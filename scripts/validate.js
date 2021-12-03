@@ -6,11 +6,25 @@ const showInputError = (formElement, inputElement, errorMessage, obj) => {
     errorElement.classList.add(obj.errorClass);
 };
 
-const hideAllError = (formElement, obj) => {
-    const inputList = formElement.querySelectorAll('popup__input')
+// фукция сброса ошибок и деактивации кнопки
+
+function resetValidation(popup) {
+    const formElement = popup.querySelector('.popup__form')
+    if (!formElement){
+        return};
+    const inputList = formElement.querySelectorAll('.popup__input')
     inputList.forEach((inputElement) => {
-        hideInputError (formElement, inputElement, obj);
+        if (inputElement.classList.contains('popup__input_type_error')) {
+            const obj = {
+                inputErrorClass: 'popup__input_type_error',
+                errorClass: 'popup__error_visible'
+            }
+            hideInputError(formElement, inputElement, obj)
+        }
     });
+    const buttonElement = popup.querySelector('.popup__save-button');
+    const inactiveButtonClass = 'popup__save-button_disabled';
+    buttonElement.classList.add(inactiveButtonClass);
 };
 // Фукция для скрытия ошибки
 const hideInputError = (formElement, inputElement, obj) => {
@@ -74,4 +88,4 @@ enableValidation({
     inactiveButtonClass: 'popup__save-button_disabled',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
-  }); 
+});

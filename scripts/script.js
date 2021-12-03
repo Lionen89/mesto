@@ -18,6 +18,11 @@ const closeEdit = popupEdit.querySelector('.popup__close-button');
 const closeAdd = popupAdd.querySelector('.popup__close-button');
 const closePhoto = popupPhoto.querySelector('.popup__close-button');
 const like = document.querySelector('.element__heart');
+const popupImage = popupPhoto.querySelector('.popup__image');
+const popupPhotoTitle = popupPhoto.querySelector('.popup__photo-title');
+const popupAddName = formAdd.querySelector('.popup__text[name="name"]');
+const popupAddLink = formAdd.querySelector('.popup__text[name="link"]');
+const inputList = document.querySelectorAll('.popup__input');
 // задаем 6 карточек 
 const initialCards = [{
         name: 'Сочи',
@@ -48,6 +53,8 @@ const initialCards = [{
 
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupByEsc);
+    document.addEventListener("click", closePopupByOverlay);
 };
 // фукция открытия редактора профиля
 
@@ -56,6 +63,7 @@ function openEditPopup() {
     jobInput.value = oldJob.textContent;
     openPopup(popupEdit);
 }
+
 editButton.addEventListener('click', openEditPopup);
 
 // ловим событие для закрытия редактора профиля
@@ -66,7 +74,7 @@ closeEdit.addEventListener('click', function () {
 
 // функция сохранения данных в редакторе профиля
 
-function formSubmitHandler(evt) {
+function handleFormSubmission(evt) {
     evt.preventDefault();
     const newName = nameInput.value;
     const newJob = jobInput.value;
@@ -75,7 +83,7 @@ function formSubmitHandler(evt) {
     closePopup(popupEdit);
 }
 
-formEdit.addEventListener('submit', formSubmitHandler);
+formEdit.addEventListener('submit', handleFormSubmission);
 
 // вставляем на траницу 6 карточек при загрузке страницы
 
@@ -101,9 +109,9 @@ function createCard(name, link) {
     // ловим событие для открытия фото
     userImage.addEventListener('click', function () {
         // фукция открытия картики
-        popupPhoto.querySelector('.popup__image').src = link;
-        popupPhoto.querySelector('.popup__image').alt = name;
-        popupPhoto.querySelector('.popup__photo-title').textContent = name;
+        popupImage.src = link;
+        popupImage.alt = name;
+        popupPhotoTitle.textContent = name;
         openPopup(popupPhoto);
     });
     return userElement;
@@ -111,8 +119,8 @@ function createCard(name, link) {
 // фукция открытия добавления карточек
 
 function openAddPopup() {
-    formAdd.querySelector('.popup__text[name="name"]').value = '';
-    const cardLink = formAdd.querySelector('.popup__text[name="link"]').value = '';
+    popupAddName.value = '';
+    const cardLink = popupAddLink.value = '';
     openPopup(popupAdd);
 };
 
@@ -122,6 +130,9 @@ addButton.addEventListener('click', openAddPopup);
 
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
+    document.removeEventListener('click', closePopupByOverlay);
+    resetValidation(popup);
     // попопытался удалить ошибки при закрытии но не вышло
     // hideAllError(popup, {
     //     inputErrorClass: 'popup__input_type_error',
@@ -136,8 +147,8 @@ closeAdd.addEventListener('click', function () {
 
 function addCards(evt) {
     evt.preventDefault();
-    const cardName = formAdd.querySelector('.popup__text[name="name"]').value;
-    const cardLink = formAdd.querySelector('.popup__text[name="link"]').value;
+    const cardName = popupAddName.value;
+    const cardLink = popupAddLink.value;
     elementsPlace.prepend(createCard(cardName, cardLink));
     closePopup(popupAdd);
 };
@@ -163,21 +174,18 @@ const closeOpenedPopup = () => {
     });
 };
 
-
 // фукция закрытия попапов по ESC
-const closePopupByEsc = () => {
-    document.addEventListener('keydown', (evt) => {
-        if (evt.key === "Escape") {
-            closeOpenedPopup()
-        }
-    });
+function closePopupByEsc(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened')
+        closeOpenedPopup(openedPopup)
+    };
 };
 
-closePopupByEsc();
-
 // фукция закрытия попапов по клику на оверлей
-document.addEventListener("click", function (evt) {
+
+function closePopupByOverlay(evt) {
     if (evt.target.classList.contains("popup_opened")) {
         closeOpenedPopup()
     };
-});
+};
