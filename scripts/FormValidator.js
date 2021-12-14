@@ -1,5 +1,7 @@
+export class FormValidator  {
+constructor(obj, formElement) {};
 // Фукция для показа ошибки
-const showInputError = (formElement, inputElement, errorMessage, obj) => {
+_showInputError = (formElement, inputElement, errorMessage, obj) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(obj.inputErrorClass);
     errorElement.textContent = errorMessage;
@@ -89,3 +91,4 @@ enableValidation({
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
 });
+};

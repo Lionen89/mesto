@@ -1,61 +1,62 @@
-//import {hideAllError} from '.validate';
-// обьявдляем переменные
-const editButton = document.querySelector('.profile__edit-button');
-const popupEdit = document.querySelector('.popup_edit');
-const popupAdd = document.querySelector('.popup_add');
-const popupPhoto = document.querySelector('.popup_photo');
-const popupList = document.querySelectorAll('.popup');
-const oldName = document.querySelector('.profile__name');
-const oldJob = document.querySelector('.profile__description');
-const formEdit = popupEdit.querySelector('.popup__form');
-const formAdd = popupAdd.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__text[name="name"]');
-const jobInput = document.querySelector('.popup__text[name="description"]');
-const addButton = document.querySelector('.profile__add-button');
-const elementTemplate = document.querySelector('.element-template');
-const elementsPlace = document.querySelector('.elements');
-const closeEdit = popupEdit.querySelector('.popup__close-button');
-const closeAdd = popupAdd.querySelector('.popup__close-button');
-const closePhoto = popupPhoto.querySelector('.popup__close-button');
-const like = document.querySelector('.element__heart');
-const popupImage = popupPhoto.querySelector('.popup__image');
-const popupPhotoTitle = popupPhoto.querySelector('.popup__photo-title');
-const popupAddName = formAdd.querySelector('.popup__text[name="name"]');
-const popupAddLink = formAdd.querySelector('.popup__text[name="link"]');
-const inputList = document.querySelectorAll('.popup__input');
+import Card from './Card.js';
+import FormValidator from './FormValidator'
+// обьявляем переменные
+// const editButton = document.querySelector('.profile__edit-button');
+// const popupEdit = document.querySelector('.popup_edit');
+// const popupAdd = document.querySelector('.popup_add');
+// const popupPhoto = document.querySelector('.popup_photo');
+// const popupList = document.querySelectorAll('.popup');
+// const oldName = document.querySelector('.profile__name');
+// const oldJob = document.querySelector('.profile__description');
+// const formEdit = popupEdit.querySelector('.popup__form');
+// const formAdd = popupAdd.querySelector('.popup__form');
+// const nameInput = document.querySelector('.popup__text[name="name"]');
+// const jobInput = document.querySelector('.popup__text[name="description"]');
+// const addButton = document.querySelector('.profile__add-button');
+// const elementTemplate = document.querySelector('.element-template');
+// const elementsPlace = document.querySelector('.elements');
+// const closeEdit = popupEdit.querySelector('.popup__close-button');
+// const closeAdd = popupAdd.querySelector('.popup__close-button');
+// const closePhoto = popupPhoto.querySelector('.popup__close-button');
+// const like = document.querySelector('.element__heart');
+// const popupImage = popupPhoto.querySelector('.popup__image');
+// const popupPhotoTitle = popupPhoto.querySelector('.popup__photo-title');
+// const popupAddName = formAdd.querySelector('.popup__text[name="name"]');
+// const popupAddLink = formAdd.querySelector('.popup__text[name="link"]');
+// const inputList = document.querySelectorAll('.popup__input');
 // задаем 6 карточек 
-const initialCards = [{
-        name: 'Сочи',
-        link: './images/Sochi.jpeg'
-    },
-    {
-        name: 'Краснодар',
-        link: './images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg'
-    },
-    {
-        name: 'Туапсе',
-        link: './images/Tuapse.jpeg'
-    },
-    {
-        name: 'Ессентуки',
-        link: './images/Essentuki.-Fontanyi-u-vhoda-v-Kurortnyiy-park5.jpg'
-    },
-    {
-        name: 'Кисловодск',
-        link: './images/Kislovodsk.jpeg'
-    },
-    {
-        name: 'Пятигорск',
-        link: './images/Pyatigorsk.jpeg'
-    }
-];
+// const initialCards = [{
+//         name: 'Сочи',
+//         link: './images/Sochi.jpeg'
+//     },
+//     {
+//         name: 'Краснодар',
+//         link: './images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg'
+//     },
+//     {
+//         name: 'Туапсе',
+//         link: './images/Tuapse.jpeg'
+//     },
+//     {
+//         name: 'Ессентуки',
+//         link: './images/Essentuki.-Fontanyi-u-vhoda-v-Kurortnyiy-park5.jpg'
+//     },
+//     {
+//         name: 'Кисловодск',
+//         link: './images/Kislovodsk.jpeg'
+//     },
+//     {
+//         name: 'Пятигорск',
+//         link: './images/Pyatigorsk.jpeg'
+//     }
+// ];
 
 
-const openPopup = (popup) => {
-    popup.classList.add('popup_opened');
-    document.addEventListener('keydown', closePopupByEsc);
-    document.addEventListener("click", closePopupByOverlay);
-};
+// const openPopup = (popup) => {
+//     popup.classList.add('popup_opened');
+//     document.addEventListener('keydown', closePopupByEsc);
+//     document.addEventListener("click", closePopupByOverlay);
+// };
 // фукция открытия редактора профиля
 
 function openEditPopup() {
@@ -133,11 +134,6 @@ const closePopup = (popup) => {
     document.removeEventListener('keydown', closePopupByEsc);
     document.removeEventListener('click', closePopupByOverlay);
     resetValidation(popup);
-    // попопытался удалить ошибки при закрытии но не вышло
-    // hideAllError(popup, {
-    //     inputErrorClass: 'popup__input_type_error',
-    //     errorClass: 'popup__error_visible'
-    //   });
 };
 // ловим событие для закрытия добавления карточек
 closeAdd.addEventListener('click', function () {
@@ -156,9 +152,9 @@ formAdd.addEventListener('submit', addCards);
 
 // фукция для лайков
 
-function likeButton(event) {
-    event.target.classList.toggle('element__heart_active');
-};
+// function likeButton(event) {
+//     event.target.classList.toggle('element__heart_active');
+// };
 
 // ловим событие для закрытия картинки
 
