@@ -1,33 +1,42 @@
-const initialCards = [{
-    name: 'Сочи',
-    link: './images/Sochi.jpeg'
-},
-{
-    name: 'Краснодар',
-    link: './images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg'
-},
-{
-    name: 'Туапсе',
-    link: './images/Tuapse.jpeg'
-},
-{
-    name: 'Ессентуки',
-    link: './images/Essentuki.-Fontanyi-u-vhoda-v-Kurortnyiy-park5.jpg'
-},
-{
-    name: 'Кисловодск',
-    link: './images/Kislovodsk.jpeg'
-},
-{
-    name: 'Пятигорск',
-    link: './images/Pyatigorsk.jpeg'
-}
-];
-
-
+const popupPhoto = document.querySelector('.popup_photo');
+// функция закрытя попапов
 const openPopup = (popup) => {
 popup.classList.add('popup_opened');
 document.addEventListener('keydown', closePopupByEsc);
 document.addEventListener("click", closePopupByOverlay);
 };
-export {initialCards as data, openPopup};
+
+// фукция закрытия попапов
+
+const closePopup = (popup) => {
+    popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
+    document.removeEventListener('click', closePopupByOverlay);
+    resetValidation(popup);
+};
+
+// функция закртия открытой модалки 
+const closeOpenedPopup = () => {
+    document.querySelectorAll('.popup').forEach((popupElement) => {
+        if (popupElement.classList.contains('popup_opened')) {
+            closePopup(popupElement);
+        }
+    });
+};
+
+// фукция закрытия попапов по ESC
+function closePopupByEsc(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened')
+        closeOpenedPopup(openedPopup)
+    };
+};
+
+// фукция закрытия попапов по клику на оверлей
+
+function closePopupByOverlay(evt) {
+    if (evt.target.classList.contains("popup_opened")) {
+        closeOpenedPopup()
+    };
+};
+export {popupPhoto, openPopup, closePopup};
