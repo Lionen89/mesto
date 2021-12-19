@@ -44,9 +44,7 @@ this._templateSelector = templateSelector;
         });
         this._CardTemplate.querySelector('.element__image').addEventListener('click', (evt) => {
             this._openPopupPhoto(evt);
-
-
-            
+          
         });
     };
 };
