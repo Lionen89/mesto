@@ -11,39 +11,40 @@ this._templateSelector = templateSelector;
     };
 
     createDefaultCards(){
-        this._CardTemplate = this._getCardTemplate();
-        this._CardTemplate.querySelector('.element__image').src = this._link;
-        this._CardTemplate.querySelector('.element__image').alt = this._name;
-        this._CardTemplate.querySelector('.element__image').name = this._name;
-        this._CardTemplate.querySelector('.element__title').textContent = this._name;
+        this._cardTemplate = this._getCardTemplate();
+        this._cardTemplate.querySelector('.element__image').src = this._link;
+        this._cardTemplate.querySelector('.element__image').alt = this._name;
+        this._cardTemplate.querySelector('.element__image').name = this._name;
+        this._cardTemplate.querySelector('.element__title').textContent = this._name;
         this._setEventListeners();
-        return this._CardTemplate;
+        return this._cardTemplate;
     };
 
     _togleLike() {
-        this._CardTemplate.querySelector('.element__heart').classList.toggle('element__heart_active');
+        this._cardTemplate.querySelector('.element__heart').classList.toggle('element__heart_active');
     };
 
     _removeCard() {
-        this._CardTemplate.remove();
+        this._cardTemplate.remove();
+        this._cardTemplate = null;
     }
 
-    _openPopupPhoto(evt){
-        popupPhoto.querySelector('.popup__image').src = evt.target.src;
-        popupPhoto.querySelector('.popup__image').alt = evt.target.name;
-        popupPhoto.querySelector('.popup__photo-title').textContent = evt.target.name;
+    _openPopupPhoto(){
+        popupPhoto.querySelector('.popup__image').src = this._link;
+        popupPhoto.querySelector('.popup__image').alt = this._name;
+        popupPhoto.querySelector('.popup__photo-title').textContent = this._name;
     openPopup(popupPhoto);
     }
 
     _setEventListeners(){
-        this._CardTemplate.querySelector('.element__heart').addEventListener('click', () => {
+        this._cardTemplate.querySelector('.element__heart').addEventListener('click', () => {
             this._togleLike();
         });
-        this._CardTemplate.querySelector('.element__trash').addEventListener('click', () => {
+        this._cardTemplate.querySelector('.element__trash').addEventListener('click', () => {
             this._removeCard();
         });
-        this._CardTemplate.querySelector('.element__image').addEventListener('click', (evt) => {
-            this._openPopupPhoto(evt);
+        this._cardTemplate.querySelector('.element__image').addEventListener('click', () => {
+            this._openPopupPhoto();
           
         });
     };

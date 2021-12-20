@@ -17,22 +17,21 @@ export class FormValidator {
         errorElement.classList.add(this._errorClass);
     };
 
-    // Метод сброса ошибок и деактивации кнопки
+    // Метод деактивации кнопки
 
-    clearErrors(popup) {
-        const formElement = popup.querySelector('.popup__form')
-        if (!formElement) {
-            return
-        };
-        const inputList = formElement.querySelectorAll('.popup__input')
-        inputList.forEach((inputElement) => {
+    disableButton() {
+        const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+        buttonElement.classList.add(this._inactiveButtonClass);   
+    }
+
+    // Метод сброса ошибок
+
+    clearErrors() {
+        this._inputList.forEach((inputElement) => {
             if (inputElement.classList.contains('popup__input_type_error')) {
                 this._hideInputError(inputElement)
             }
         });
-        const buttonElement = popup.querySelector('.popup__save-button');
-        const inactiveButtonClass = 'popup__save-button_disabled';
-        buttonElement.classList.add(inactiveButtonClass);
     };
     // Метод для скрытия ошибки
     _hideInputError = (inputElement) => {
@@ -67,33 +66,21 @@ export class FormValidator {
     };
     // Метод для отслеживания состояние кнопки сабмита 
     _setEventListeners = () => {
-        const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-        this._toggleButtonState(inputList, buttonElement);
-        inputList.forEach((inputElement) => {
+        this._toggleButtonState(this._inputList, buttonElement);
+        this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState(inputList, buttonElement);
+                this._toggleButtonState(this._inputList, buttonElement);
             });
         });
     };
     // Метод проверки валидации
     enableValidation = () => {
-        const formList = Array.from(document.querySelectorAll(this._formSelector));
-        formList.forEach((formElement) => {
-            formElement.addEventListener('submit', function (evt) {
+        this._formElement.addEventListener('submit', function (evt) {
                 evt.preventDefault();
             });
-
-            this._setEventListeners(formElement);
-        });
-    };
-//     enableValidation({
-//         formSelector: '.popup__form',
-//         inputSelector: '.popup__input',
-//         submitButtonSelector: '.popup__save-button',
-//         inactiveButtonClass: 'popup__save-button_disabled',
-//         inputErrorClass: 'popup__input_type_error',
-//         errorClass: 'popup__error_visible'
-// });
+            this._setEventListeners(this._formElement);
+        };
 };

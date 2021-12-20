@@ -74,6 +74,7 @@ renderCards();
 function openEditPopup() {
     nameInput.value = oldName.textContent;
     jobInput.value = oldJob.textContent;
+    editFormValidator.clearErrors();
     openPopup(popupEdit);
 };
 
@@ -92,6 +93,8 @@ function handleFormSubmission(evt) {
 function openAddPopup() {
     popupAddName.value = '';
     popupAddLink.value = '';
+    addFormValidator.clearErrors();
+    addFormValidator.disableButton();
     openPopup(popupAdd);
 };
 
@@ -127,9 +130,9 @@ closePhoto.addEventListener('click', function () {
     closePopup(popupPhoto);
 });
 
-// // Валидация формы редактирования профиля
-// const editFormValidator = new FormValidator(objConfig, formEdit)
-// editFormValidator.enableValidation();
-// // Валидация формы добавления карточки
-// const addFormValidator = new FormValidator(objConfig, formAdd)
-// addFormValidator.enableValidation();
+// Валидация формы редактирования профиля
+const editFormValidator = new FormValidator(objConfig, formEdit)
+editFormValidator.enableValidation();
+// Валидация формы добавления карточки
+const addFormValidator = new FormValidator(objConfig, formAdd)
+addFormValidator.enableValidation();
