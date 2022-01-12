@@ -1,12 +1,8 @@
-const popupEdit = document.querySelector('.popup_edit');
-const popupAdd = document.querySelector('.popup_add');
-const formEdit = popupEdit.querySelector('.popup__form');
-const formAdd = popupAdd.querySelector('.popup__form');
+const formAdd = document.querySelector('.popup_add').querySelector('.popup__form');
+const formEdit = document.querySelector('.popup_edit').querySelector('.popup__form');
 const nameInput = document.querySelector('.popup__text[name="name"]');
 const jobInput = document.querySelector('.popup__text[name="description"]');
 const elementTemplate = document.querySelector('.element-template');
-const elementsPlace = document.querySelector('.elements');
-const popupPhoto = document.querySelector('.popup_photo');
 const sochi = new URL('../images/Sochi.jpeg', import.meta.url);
 const krasnodar = new URL('../images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg', import.meta.url);
 const tuapse = new URL('../images/Tuapse.jpeg', import.meta.url);
@@ -50,15 +46,11 @@ const initialCards = [{
     }
 ];
 export {
-    popupEdit,
-    popupAdd,
-    formEdit,
     formAdd,
+    formEdit,
     nameInput,
     jobInput,
     elementTemplate,
-    elementsPlace,
-    popupPhoto,
     objConfig,
     initialCards
 };

@@ -12,10 +12,12 @@ this._handleCardClick = handleCardClick
 
     createCards(){
         this._cardTemplate = this._getCardTemplate();
-        this._cardTemplate.querySelector('.element__image').src = this._link;
-        this._cardTemplate.querySelector('.element__image').alt = this._name;
-        this._cardTemplate.querySelector('.element__image').name = this._name;
-        this._cardTemplate.querySelector('.element__title').textContent = this._name;
+        this._cardTemplateImage = this._cardTemplate.querySelector('.element__image');
+        this._cardTemplateText = this._cardTemplate.querySelector('.element__title')
+        this._cardTemplateImage.src = this._link;
+        this._cardTemplateImage.alt = this._name;
+        this._cardTemplateImage.name = this._name;
+        this._cardTemplateText.textContent = this._name;
         this._setEventListeners();
         return this._cardTemplate;
     };

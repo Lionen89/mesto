@@ -1,26 +1,22 @@
 // импортируем данные
-import Card from './Card.js';
+import Card from '../components/Card.js';
 import {
-    popupEdit,
-    popupAdd,
-    formEdit,
     formAdd,
+    formEdit,
     nameInput,
     jobInput,
     elementTemplate,
-    elementsPlace,
-    popupPhoto,
     objConfig,
     initialCards
-} from './Constants.js'
-import Section from './Section.js';
-import FormValidator from './FormValidator.js'
-import PopupWithImage from './PopupWithImage.js';
-import PopupWithForm from './PopupWithForm.js';
-import UserInfo from './UserInfo.js';
+} from '../utils/Constants.js'
+import Section from '../components/Section.js';
+import FormValidator from '../components/FormValidator.js'
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 import '../pages/index.css';
 
-const popupImage = new PopupWithImage(popupPhoto)
+const popupImage = new PopupWithImage('.popup_photo')
 popupImage.setEventListeners();
 
 const createCard = function (data, template) {
@@ -37,10 +33,18 @@ const photo = new Section({
     items: initialCards,
     renderer: (item) =>
         createCard(item, elementTemplate)
-}, elementsPlace);
+}, '.elements');
 photo.renderItem();
 
-const addPhoto = new PopupWithForm(popupAdd, () => {
+
+// Валидация формы редактирования профиля
+const editFormValidator = new FormValidator(objConfig, formEdit)
+editFormValidator.enableValidation();
+// Валидация формы добавления карточки
+const addFormValidator = new FormValidator(objConfig, formAdd)
+addFormValidator.enableValidation();
+
+const addPhoto = new PopupWithForm('.popup_add', () => {
     const inputValues = addPhoto._getInputValues();
     const newcard = createCard(inputValues, elementTemplate);
     photo.addItem(newcard);
@@ -55,7 +59,7 @@ addPhoto.setEventListeners();
 
 const prfUserInfo = new UserInfo(nameInput, jobInput);
 
-const editProfile = new PopupWithForm(popupEdit, () => {
+const editProfile = new PopupWithForm('.popup_edit', () => {
     prfUserInfo.setUserInfo(editProfile._getInputValues());
     editProfile.close();
 });
@@ -67,10 +71,3 @@ document.querySelector('.profile__edit-button').addEventListener('click', () => 
     editProfile.open()
 });
 editProfile.setEventListeners();
-
-// Валидация формы редактирования профиля
-const editFormValidator = new FormValidator(objConfig, formEdit)
-editFormValidator.enableValidation();
-// Валидация формы добавления карточки
-const addFormValidator = new FormValidator(objConfig, formAdd)
-addFormValidator.enableValidation();
