@@ -1,16 +1,16 @@
-import {popupPhoto, openPopup} from "./parts.js";
-
-export class Card {
-    constructor(data, templateSelector) {
+export default class Card {
+    constructor(data, templateSelector, handleCardClick) {
+this._data = data;
 this._name = data.name;
 this._link = data.link;
 this._templateSelector = templateSelector;
+this._handleCardClick = handleCardClick
     }
     _getCardTemplate() {
          return this._templateSelector.content.querySelector('.element').cloneNode(true);
     };
 
-    createDefaultCards(){
+    createCards(){
         this._cardTemplate = this._getCardTemplate();
         this._cardTemplate.querySelector('.element__image').src = this._link;
         this._cardTemplate.querySelector('.element__image').alt = this._name;
@@ -29,13 +29,6 @@ this._templateSelector = templateSelector;
         this._cardTemplate = null;
     }
 
-    _openPopupPhoto(){
-        popupPhoto.querySelector('.popup__image').src = this._link;
-        popupPhoto.querySelector('.popup__image').alt = this._name;
-        popupPhoto.querySelector('.popup__photo-title').textContent = this._name;
-    openPopup(popupPhoto);
-    }
-
     _setEventListeners(){
         this._cardTemplate.querySelector('.element__heart').addEventListener('click', () => {
             this._togleLike();
@@ -44,7 +37,7 @@ this._templateSelector = templateSelector;
             this._removeCard();
         });
         this._cardTemplate.querySelector('.element__image').addEventListener('click', () => {
-            this._openPopupPhoto();
+            this._handleCardClick(this._data);
           
         });
     };

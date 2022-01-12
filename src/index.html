@@ -5,18 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto Russia</title>
 </head>
 
 <body class="main-page">
   <header class="header">
-    <img src="./images/Mesto_Russia.svg" alt="Лого Место" class="header__logo">
+    <img src="<%=require('./images/Mesto_Russia.svg')%>" alt="Лого Место" class="header__logo">
   </header>
   <div class="main-page__container">
     <main>
       <section class="profile">
-        <img src="./images/Jacques-Yves.Cousteau.jpeg" alt="Жак Ив Кусто" class="profile__avatar">
+        <img src="<%=require('./images/Jacques-Yves.Cousteau.jpeg')%>" alt="Жак Ив Кусто" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__name">Жак Ив Кусто</h1>
           <button type="button" aria-label="Close" class="profile__edit-button"></button>
@@ -90,7 +89,6 @@
       <button type="button" class="popup__close-button"></button>
     </div>
   </div>
-  <script type= 'module' src="./scripts/index.js"></script>
 </body>
 
 </html>
