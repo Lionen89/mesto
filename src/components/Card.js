@@ -13,7 +13,8 @@ this._handleCardClick = handleCardClick
     createCards(){
         this._cardTemplate = this._getCardTemplate();
         this._cardTemplateImage = this._cardTemplate.querySelector('.element__image');
-        this._cardTemplateText = this._cardTemplate.querySelector('.element__title')
+        this._cardTemplateText = this._cardTemplate.querySelector('.element__title');
+        this._likeButton = this._cardTemplate.querySelector('.element__heart');
         this._cardTemplateImage.src = this._link;
         this._cardTemplateImage.alt = this._name;
         this._cardTemplateImage.name = this._name;
@@ -23,7 +24,7 @@ this._handleCardClick = handleCardClick
     };
 
     _togleLike() {
-        this._cardTemplate.querySelector('.element__heart').classList.toggle('element__heart_active');
+        this._likeButton.classList.toggle('element__heart_active');
     };
 
     _removeCard() {
@@ -32,13 +33,13 @@ this._handleCardClick = handleCardClick
     }
 
     _setEventListeners(){
-        this._cardTemplate.querySelector('.element__heart').addEventListener('click', () => {
+        this._likeButton.addEventListener('click', () => {
             this._togleLike();
         });
         this._cardTemplate.querySelector('.element__trash').addEventListener('click', () => {
             this._removeCard();
         });
-        this._cardTemplate.querySelector('.element__image').addEventListener('click', () => {
+        this._cardTemplateImage.addEventListener('click', () => {
             this._handleCardClick(this._data);
           
         });

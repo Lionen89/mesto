@@ -5,11 +5,11 @@ export default class Section {
     }, containerSelector) {
         this._items = items;
         this._renderer = renderer;
-        this._containerSelector = document.querySelector(containerSelector);
+        this._container = document.querySelector(containerSelector);
     };
 
     addItem(element) {
-        this._containerSelector.prepend(element);
+        this._container.prepend(element);
     };
 
     renderItem() {
@@ -20,7 +20,7 @@ export default class Section {
     };
 
     clear() {
-        this._containerSelector.innerHTML = ''
+        this._container.innerHTML = ''
     };
 
 }

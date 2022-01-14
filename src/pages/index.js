@@ -44,30 +44,31 @@ editFormValidator.enableValidation();
 const addFormValidator = new FormValidator(objConfig, formAdd)
 addFormValidator.enableValidation();
 
-const addPhoto = new PopupWithForm('.popup_add', () => {
-    const inputValues = addPhoto._getInputValues();
+const addPhotoPopup = new PopupWithForm('.popup_add', () => {
+    const inputValues = addPhotoPopup.getInputValues();
     const newcard = createCard(inputValues, elementTemplate);
     photo.addItem(newcard);
-    addPhoto.close();
+    addPhotoPopup.close();
 });
 
 document.querySelector('.profile__add-button').addEventListener('click', () => {
     addFormValidator.clearErrors();
-    addPhoto.open();
+    addPhotoPopup.open();
 });
-addPhoto.setEventListeners();
+addPhotoPopup.setEventListeners();
 
-const prfUserInfo = new UserInfo(nameInput, jobInput);
+const prfUserInfo = new UserInfo('.profile__name', '.profile__description');
 
-const editProfile = new PopupWithForm('.popup_edit', () => {
-    prfUserInfo.setUserInfo(editProfile._getInputValues());
-    editProfile.close();
+const editProfilePopup = new PopupWithForm('.popup_edit', () => {
+    prfUserInfo.setUserInfo(editProfilePopup.getInputValues());
+    editProfilePopup.close();
 });
 
 document.querySelector('.profile__edit-button').addEventListener('click', () => {
     editFormValidator.clearErrors();
     const oldData = prfUserInfo.getUserInfo();
-    prfUserInfo.setUserInfo(oldData);
-    editProfile.open()
+    nameInput.value = oldData.name;
+    jobInput.value = oldData.description;
+    editProfilePopup.open()
 });
-editProfile.setEventListeners();
+editProfilePopup.setEventListeners();
