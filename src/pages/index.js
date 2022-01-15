@@ -53,6 +53,7 @@ const addPhotoPopup = new PopupWithForm('.popup_add', () => {
 
 document.querySelector('.profile__add-button').addEventListener('click', () => {
     addFormValidator.clearErrors();
+    addFormValidator.disableButton();
     addPhotoPopup.open();
 });
 addPhotoPopup.setEventListeners();
@@ -66,6 +67,7 @@ const editProfilePopup = new PopupWithForm('.popup_edit', () => {
 
 document.querySelector('.profile__edit-button').addEventListener('click', () => {
     editFormValidator.clearErrors();
+    editFormValidator.disableButton();
     const oldData = prfUserInfo.getUserInfo();
     nameInput.value = oldData.name;
     jobInput.value = oldData.description;
