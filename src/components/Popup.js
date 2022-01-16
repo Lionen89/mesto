@@ -2,9 +2,7 @@ export default class Popup {
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector),
             this._handleEscClose = this._handleEscClose.bind(this),
-            this._handleOverlayClose = this._handleOverlayClose.bind(this),
-            this._popupImage = this._popup.querySelector('.popup__image'),
-            this._popupPhotoTitle = this._popup.querySelector('.popup__photo-title')
+            this._handleOverlayClose = this._handleOverlayClose.bind(this)
     }
     // функция окрытя попапов
     open() {

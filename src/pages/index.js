@@ -46,8 +46,7 @@ addFormValidator.enableValidation();
 
 const addPhotoPopup = new PopupWithForm('.popup_add', () => {
     const inputValues = addPhotoPopup.getInputValues();
-    const newcard = createCard(inputValues, elementTemplate);
-    photo.addItem(newcard);
+    photo.addItem(inputValues);
     addPhotoPopup.close();
 });
 
