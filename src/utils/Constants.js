@@ -1,14 +1,14 @@
 const formAdd = document.querySelector('.popup_add').querySelector('.popup__form');
 const formEdit = document.querySelector('.popup_edit').querySelector('.popup__form');
+const formAvatar = document.querySelector('.popup_update-avatar').querySelector('.popup__form');
 const nameInput = document.querySelector('.popup__text[name="name"]');
 const jobInput = document.querySelector('.popup__text[name="description"]');
 const elementTemplate = document.querySelector('.element-template');
-const sochi = new URL('../images/Sochi.jpeg', import.meta.url);
-const krasnodar = new URL('../images/krasnodar___shutterstock_1416491849.gujmyhwjakf6.jpg', import.meta.url);
-const tuapse = new URL('../images/Tuapse.jpeg', import.meta.url);
-const essentuki = new URL('../images/Essentuki.-Fontanyi-u-vhoda-v-Kurortnyiy-park5.jpg', import.meta.url);
-const kislovodsk = new URL('../images/Kislovodsk.jpeg', import.meta.url);
-const pyatigorsk = new URL('../images/Pyatigorsk.jpeg', import.meta.url);
+const url = 'https://mesto.nomoreparties.co/v1/cohort-34';
+const headers = {
+    authorization: 'cfb2b6f5-426e-4056-b62c-e6e89dc9d392',
+    'Content-Type': 'application/json',
+};
 
 // задаем обьект настроек
 const objConfig = {
@@ -19,38 +19,15 @@ const objConfig = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
 };
-// задаем 6 карточек 
-const initialCards = [{
-        name: 'Сочи',
-        link: sochi
-    },
-    {
-        name: 'Краснодар',
-        link: krasnodar
-    },
-    {
-        name: 'Туапсе',
-        link: tuapse
-    },
-    {
-        name: 'Ессентуки',
-        link: essentuki
-    },
-    {
-        name: 'Кисловодск',
-        link: kislovodsk
-    },
-    {
-        name: 'Пятигорск',
-        link: pyatigorsk
-    }
-];
+
 export {
     formAdd,
     formEdit,
+    formAvatar,
     nameInput,
     jobInput,
     elementTemplate,
     objConfig,
-    initialCards
+    url,
+    headers
 };

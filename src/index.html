@@ -15,7 +15,9 @@
   <div class="main-page__container">
     <main>
       <section class="profile">
-        <img src="<%=require('./images/Jacques-Yves.Cousteau.jpeg')%>" alt="Жак Ив Кусто" class="profile__avatar">
+        <div class="profile__avatar-container">
+          <img src="<%=require('./images/Jacques-Yves.Cousteau.jpeg')%>" alt="Жак Ив Кусто" class="profile__avatar">
+        </div>
         <div class="profile__info">
           <h1 class="profile__name">Жак Ив Кусто</h1>
           <button type="button" aria-label="Close" class="profile__edit-button"></button>
@@ -30,7 +32,10 @@
             <button class="element__trash" type="button" aria-label="Удаление"></button>
             <div class="element__description">
               <h2 class="element__title"></h2>
+            <div class="element__like">
               <button type="button" class="element__heart"></button>
+              <span class="element__heart-amount"></span>
+            </div>
             </div>
           </article>
         </template>
@@ -87,6 +92,31 @@
       <img class="popup__image" src="#" alt="">
       <h2 class="popup__photo-title"></h2>
       <button type="button" class="popup__close-button"></button>
+    </div>
+  </div>
+  <div class="popup popup_confirmation">
+    <div class="popup__container">
+      <h2 class="popup__title popup__title_coif">Вы уверены?</h2>
+      <button type="submit" class="popup__save-button popup__save-button_coinf">Да</button>
+      <div>
+        <button type="button" class="popup__close-button"></button>
+      </div>
+    </div>
+  </div>
+  <div class="popup popup_update-avatar">
+    <div class="popup__container">
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form" name="update-form" novalidate>
+        <label class='popup__form-field'>
+          <input type="url" class="popup__text popup__input" id="avatar-input" name="avatar" placeholder="Аватар"
+            required minlength="2">
+          <span class="avatar-input-error popup__error"></span>
+        </label>
+        <button type="submit" class="popup__save-button">Создать</button>
+      </form>
+      <div>
+        <button type="button" class="popup__close-button"></button>
+      </div>
     </div>
   </div>
 </body>

@@ -14,13 +14,13 @@ export default class Section {
     };
 
     renderItem() {
-        this.clear();
+        this._clear();
         this._items.forEach((item) => {
             this.addItem(item);
         });
     };
 
-    clear() {
+    _clear() {
         this._container.innerHTML = ''
     };
 
